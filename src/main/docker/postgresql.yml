@@ -1,0 +1,11 @@
+version: '2'
+services:
+  bowling_board-postgresql:
+    image: postgres:12.1
+    # volumes:
+    #     - ~/volumes/jhipster/bowling_board/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=bowling_board
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432

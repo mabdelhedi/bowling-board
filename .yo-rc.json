@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "fr.ippon.bowlingboard",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.8.0",
+    "applicationType": "monolith",
+    "baseName": "bowling_board",
+    "packageName": "fr.ippon.bowlingboard",
+    "packageFolder": "fr/ippon/bowlingboard",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZDIwM2ExOGRlNzk0ZGFkN2ExOGIyZDZmNjZlZmUzMmRiMjVjOTU4NGI5YzBkYzVlYzMxYzQzODA3MTZjOWI2OWU0YWUzNzM2ZjRlMjhhMjE2Y2RhMjUzZjI3NzEzNmU3ZDE3MjY1ODE5NGZmYmY3MjZkMWEwNGQ5ZTBhYzExMWM=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1589627056822,
+    "testFrameworks": ["protractor"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": ["en"],
+    "blueprints": []
+  }
+}
