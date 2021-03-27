@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-score-heading" jhiTranslate="bowlingBoardApp.score.home.createOrEditLabel">Create or edit a Score</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bowlingBoardApp.score.nbKeel" for="field_nbKeel">Nb Keel</label>
+                    <input type="number" class="form-control" name="nbKeel" id="field_nbKeel"
+                           formControlName="nbKeel"/>
+                    <div *ngIf="editForm.get('nbKeel')!.invalid && (editForm.get('nbKeel')!.dirty || editForm.get('nbKeel')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nbKeel')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('nbKeel')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bowlingBoardApp.score.tour" for="field_tour">Tour</label>
+                    <input type="number" class="form-control" name="tour" id="field_tour"
+                           formControlName="tour"/>
+                    <div *ngIf="editForm.get('tour')!.invalid && (editForm.get('tour')!.dirty || editForm.get('tour')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tour')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('tour')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bowlingBoardApp.score.lancier" for="field_lancier">Lancier</label>
+                    <input type="number" class="form-control" name="lancier" id="field_lancier"
+                           formControlName="lancier"/>
+                    <div *ngIf="editForm.get('lancier')!.invalid && (editForm.get('lancier')!.dirty || editForm.get('lancier')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lancier')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lancier')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bowlingBoardApp.score.game" for="field_game">Game</label>
+                    <select class="form-control" id="field_game" name="game" formControlName="game">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="gameOption.id === editForm.get('game')!.value?.id ? editForm.get('game')!.value : gameOption" *ngFor="let gameOption of games; trackBy: trackById">{{ gameOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bowlingBoardApp.score.player" for="field_player">Player</label>
+                    <select class="form-control" id="field_player" name="player" formControlName="player">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="playerOption.id === editForm.get('player')!.value?.id ? editForm.get('player')!.value : playerOption" *ngFor="let playerOption of players; trackBy: trackById">{{ playerOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

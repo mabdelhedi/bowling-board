@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="score">
+            <h2><span jhiTranslate="bowlingBoardApp.score.detail.title">Score</span> {{ score.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bowlingBoardApp.score.nbKeel">Nb Keel</span></dt>
+                <dd>
+                    <span>{{ score.nbKeel }}</span>
+                </dd>
+                <dt><span jhiTranslate="bowlingBoardApp.score.tour">Tour</span></dt>
+                <dd>
+                    <span>{{ score.tour }}</span>
+                </dd>
+                <dt><span jhiTranslate="bowlingBoardApp.score.lancier">Lancier</span></dt>
+                <dd>
+                    <span>{{ score.lancier }}</span>
+                </dd>
+                <dt><span jhiTranslate="bowlingBoardApp.score.game">Game</span></dt>
+                <dd>
+                    <div *ngIf="score.game">
+                        <a [routerLink]="['/game', score.game?.id, 'view']">{{ score.game?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="bowlingBoardApp.score.player">Player</span></dt>
+                <dd>
+                    <div *ngIf="score.player">
+                        <a [routerLink]="['/player', score.player?.id, 'view']">{{ score.player?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/score', score.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

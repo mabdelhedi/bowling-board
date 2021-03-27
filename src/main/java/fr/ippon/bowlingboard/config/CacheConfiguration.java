@@ -42,6 +42,11 @@ public class CacheConfiguration {
             createCache(cm, fr.ippon.bowlingboard.domain.User.class.getName());
             createCache(cm, fr.ippon.bowlingboard.domain.Authority.class.getName());
             createCache(cm, fr.ippon.bowlingboard.domain.User.class.getName() + ".authorities");
+            createCache(cm, fr.ippon.bowlingboard.domain.Player.class.getName());
+            createCache(cm, fr.ippon.bowlingboard.domain.Player.class.getName() + ".scores");
+            createCache(cm, fr.ippon.bowlingboard.domain.Game.class.getName());
+            createCache(cm, fr.ippon.bowlingboard.domain.Game.class.getName() + ".scores");
+            createCache(cm, fr.ippon.bowlingboard.domain.Score.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
